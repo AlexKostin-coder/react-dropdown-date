@@ -14,6 +14,7 @@ interface IProps {
     name?: string;
     classes?: string;
     optionClasses?: string;
+    monthNames?: string[];
 }
 interface IState {
 }

@@ -95,7 +95,8 @@ var MonthPicker = /** @class */ (function (_super) {
     function MonthPicker() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.renderMonthOptions = function () {
-            var _a = _this.props, endYearGiven = _a.endYearGiven, year = _a.year, numeric = _a.numeric, caps = _a.caps, short = _a.short, optionClasses = _a.optionClasses, defaultValue = _a.defaultValue;
+            var _a = _this.props, endYearGiven = _a.endYearGiven, year = _a.year, numeric = _a.numeric, caps = _a.caps, short = _a.short, optionClasses = _a.optionClasses, defaultValue = _a.defaultValue, _b = _a.monthNames, monthNames = _b === void 0 ? null : _b;
+            var _monthByNumber = monthNames || monthByNumber;
             var today = new Date();
             var months = [];
             var month = 11;
@@ -111,7 +112,7 @@ var MonthPicker = /** @class */ (function (_super) {
             }
             else {
                 for (var i = 0; i <= month; ++i) {
-                    months.push(monthByNumber[i]);
+                    months.push(_monthByNumber[i]);
                 }
                 if (caps) {
                     months = months.map(function (month) { return month.toUpperCase(); });
