@@ -1,4 +1,4 @@
-export declare const monthByNumber: {
+export declare let monthByNumber: {
     0: string;
     1: string;
     2: string;
@@ -32,3 +32,4 @@ export declare const unit: {
     year: string;
 };
 export declare const getDaysInMonth: (year: number, month: number) => number;
+export declare const setMonthByNumber: (newMonthByNumber: Object) => void;

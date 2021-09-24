@@ -2,6 +2,31 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var React = require('react');
 
+var monthByNumber = {
+    0: 'January',
+    1: 'February',
+    2: 'March',
+    3: 'April',
+    4: 'May',
+    5: 'June',
+    6: 'July',
+    7: 'August',
+    8: 'September',
+    9: 'October',
+    10: 'November',
+    11: 'December'
+};
+var getDaysInMonth = function (year, month) {
+    year = +(year);
+    month = +(month) + 1;
+    return new Date(year, month, 0).getDate();
+};
+var setMonthByNumber = function (newMonthByNumber) {
+    Object.keys(newMonthByNumber).forEach(function (key) {
+        monthByNumber[key] = newMonthByNumber[key];
+    });
+};
+
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -70,33 +95,12 @@ var YearPicker = /** @class */ (function (_super) {
     return YearPicker;
 }(React.Component));
 
-var monthByNumber = {
-    0: 'January',
-    1: 'February',
-    2: 'March',
-    3: 'April',
-    4: 'May',
-    5: 'June',
-    6: 'July',
-    7: 'August',
-    8: 'September',
-    9: 'October',
-    10: 'November',
-    11: 'December'
-};
-var getDaysInMonth = function (year, month) {
-    year = +(year);
-    month = +(month) + 1;
-    return new Date(year, month, 0).getDate();
-};
-
 var MonthPicker = /** @class */ (function (_super) {
     __extends(MonthPicker, _super);
     function MonthPicker() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.renderMonthOptions = function () {
-            var _a = _this.props, endYearGiven = _a.endYearGiven, year = _a.year, numeric = _a.numeric, caps = _a.caps, short = _a.short, optionClasses = _a.optionClasses, defaultValue = _a.defaultValue, _b = _a.monthNames, monthNames = _b === void 0 ? null : _b;
-            var _monthByNumber = monthNames || monthByNumber;
+            var _a = _this.props, endYearGiven = _a.endYearGiven, year = _a.year, numeric = _a.numeric, caps = _a.caps, short = _a.short, optionClasses = _a.optionClasses, defaultValue = _a.defaultValue;
             var today = new Date();
             var months = [];
             var month = 11;
@@ -112,7 +116,7 @@ var MonthPicker = /** @class */ (function (_super) {
             }
             else {
                 for (var i = 0; i <= month; ++i) {
-                    months.push(_monthByNumber[i]);
+                    months.push(monthByNumber[i]);
                 }
                 if (caps) {
                     months = months.map(function (month) { return month.toUpperCase(); });
@@ -430,4 +434,5 @@ exports.DayPicker = DayPicker;
 exports.DropdownDate = DropdownDate;
 exports.MonthPicker = MonthPicker;
 exports.YearPicker = YearPicker;
+exports.setMonthByNumber = setMonthByNumber;
 //# sourceMappingURL=index.js.map

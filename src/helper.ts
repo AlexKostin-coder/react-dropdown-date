@@ -1,4 +1,4 @@
-export const monthByNumber = {
+export let monthByNumber = {
     0: 'January',
     1: 'February',
     2: 'March',
@@ -38,4 +38,12 @@ export const getDaysInMonth = (year: number, month: number): number => {
     year = +(year);
     month = +(month) + 1;
     return new Date(year, month, 0).getDate();
+};
+
+
+export const setMonthByNumber = (newMonthByNumber: Object): void => {
+
+    Object.keys(newMonthByNumber).forEach((key: string) => {
+        monthByNumber[key] = newMonthByNumber[key];
+    });
 };
